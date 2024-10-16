@@ -29,7 +29,7 @@ const SecretSection = () => {
     secrets && secretsLoaded
       ? secrets
           ?.filter((rs) => partnerTaskNames.includes(rs.metadata.name))
-          ?.map((s) => s.metadata.name) || []
+          ?.map((s) => s.metadata.name)
       : [];
 
   const onSubmit = React.useCallback(
@@ -76,9 +76,9 @@ const SecretSection = () => {
         variant="link"
         data-testid="add-secret-button"
         icon={<PlusCircleIcon />}
-        onClick={() =>
-          showModal(SecretModalLauncher([...partnerTaskSecrets, ...values.newSecrets], onSubmit))
-        }
+        onClick={() => {
+          showModal(SecretModalLauncher([...partnerTaskSecrets, ...values.newSecrets], onSubmit));
+        }}
         isDisabled={!canCreateSecret}
         tooltip="You don't have access to add a secret"
       >
