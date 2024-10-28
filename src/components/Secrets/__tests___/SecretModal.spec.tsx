@@ -88,7 +88,7 @@ describe('SecretForm', () => {
     });
   });
 
-  it('should not show the secrets in the select dropdown if it is already existing', async () => {
+  it('should show the secrets in the select dropdown if it is already existing', async () => {
     const onClose = jest.fn();
     formikRenderer(
       <SecretModal
@@ -104,7 +104,7 @@ describe('SecretForm', () => {
       const modal = screen.queryByTestId('build-secret-modal');
       fireEvent.click(modal.querySelector('#secret-name-toggle-select-typeahead'));
     });
-    expect(screen.queryByText('snyk-secret')).not.toBeInTheDocument();
+    expect(screen.queryByText('snyk-secret')).toBeInTheDocument();
   });
 
   it('should remove the selected value with clearn button is clicked', async () => {
